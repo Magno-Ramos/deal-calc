@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Calcula Desconto</string>
+    <string name="admob_banner_id">ca-app-pub-7769225974793786/4833082677</string>
+    <string name="admob_interstitial_id">ca-app-pub-7769225974793786/5275919893</string>
+</resources>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Desconto</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="bg-gray-50 min-h-screen py-8 px-4">
+    <div class="max-w-2xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-black mb-2">Calculadora de Desconto</h1>
+            <p class="text-gray-600">Calcule percentuais e valores de desconto facilmente</p>
+        </div>
+
+        <!-- Calculator Container -->
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+            <!-- Tab Navigation -->
+            <div class="flex mb-8 bg-gray-100 rounded-xl p-1">
+                <button id="tab1"
+                    class="flex-1 py-3 px-4 rounded-lg font-medium transition-all duration-200 bg-black text-white">
+                    Calcular Percentual
+                </button>
+                <button id="tab2"
+                    class="flex-1 py-3 px-4 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:text-black">
+                    Calcular Valor Final
+                </button>
+            </div>
+
+            <!-- Calculator 1: Calculate Percentage -->
+            <div id="calc1" class="calculator-section">
+                <h2 class="text-xl font-semibold text-black mb-6">Descobrir Percentual de Desconto</h2>
+
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Valor Original (R$)</label>
+                        <input type="number" id="originalValue1" placeholder="0,00"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Valor com Desconto (R$)</label>
+                        <input type="number" id="discountedValue" placeholder="0,00"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all">
+                    </div>
+                </div>
+
+                <button onclick="calculatePercentage()"
+                    class="w-full bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-colors duration-200 mb-6">
+                    Calcular Percentual
+                </button>
+
+                <div id="result1" class="hidden bg-gray-50 rounded-lg p-6">
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600 mb-2">Percentual de Desconto</p>
+                        <p class="text-3xl font-bold text-black mb-2" id="percentageResult">0%</p>
+                        <p class="text-sm text-gray-600 mb-4">Economia de <span id="savingsAmount"
+                                class="font-semibold text-black">R$ 0,00</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculator 2: Calculate Final Value -->
+            <div id="calc2" class="calculator-section hidden">
+                <h2 class="text-xl font-semibold text-black mb-6">Calcular Valor Final</h2>
+
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Valor Original (R$)</label>
+                        <input type="number" id="originalValue2" placeholder="0,00"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Percentual de Desconto (%)</label>
+                        <input type="number" id="discountPercentage" placeholder="0" min="0" max="100"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all">
+                    </div>
+                </div>
+
+                <button onclick="calculateFinalValue()"
+                    class="w-full bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-colors duration-200 mb-6">
+                    Calcular Valor Final
+                </button>
+
+                <div id="result2" class="hidden bg-gray-50 rounded-lg p-6">
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600 mb-2">Valor Final</p>
+                        <p class="text-3xl font-bold text-black mb-2" id="finalValueResult">R$ 0,00</p>
+                        <p class="text-sm text-gray-600 mb-4">Economia de <span id="savingsAmount2"
+                                class="font-semibold text-black">R$ 0,00</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="mt-8 bg-white rounded-2xl shadow-lg p-6">
+            <h3 class="text-lg font-semibold text-black mb-4">Como usar:</h3>
+            <div class="space-y-3 text-sm text-gray-600">
+                <div class="flex items-start">
+                    <span class="font-semibold text-black mr-2">1.</span>
+                    <span><strong>Calcular Percentual:</strong> Informe o valor original e o valor com desconto para
+                        descobrir qual foi o percentual aplicado.</span>
+                </div>
+                <div class="flex items-start">
+                    <span class="font-semibold text-black mr-2">2.</span>
+                    <span><strong>Calcular Valor Final:</strong> Informe o valor original e o percentual de desconto
+                        para descobrir o valor final a pagar.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+
+</html>
